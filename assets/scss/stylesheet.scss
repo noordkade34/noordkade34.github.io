@@ -1,0 +1,252 @@
+//$visual-grid: true;
+//$visual-grid-color: red;
+//$visual-grid-index: front;
+//$visual-grid-opacity: 0.5;
+ 
+
+
+@import "bourbon";
+@import "neat";
+@import "neat-helpers";
+@import "bower_components/normalize-css/normalize.css";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,300);
+
+// Change the grid settings
+//$column: 90px;
+//$gutter: 30px;
+$grid-columns: 12;
+$max-width: em(1024, 18);
+
+
+/*
+ Defaults
+ */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter, div.aligncenter {
+  display:block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float:right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float:left;
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+a img.alignright {
+  float:right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float:left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.wp-caption,
+.gallery-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%; /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin:0;
+  max-width: 98.5%;
+  padding:0;
+  width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  line-height: 28px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+/*-----------------------------------------------------------------------------------
+02. Body Defaults
+-----------------------------------------------------------------------------------*/
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font: 400 18px/36px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #F7F7F7;
+  color: #000;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+  word-wrap: break-word;
+  word-break: break-word;
+  -webkit-animation: fadein 0.1s 0s ease-out;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+@media \0screen {
+  img { 
+    width: auto; /* for ie 8 */
+  }
+}
+
+a,
+a img {
+  text-decoration: none;
+  outline: none;
+}
+
+a {
+  -webkit-transition: 0.2s color ease-in-out;
+    -moz-transition: 0.2s color ease-in-out;
+      -o-transition: 0.2s color ease-in-out;
+        transition: 0.2s color ease-in-out;
+}
+
+p {
+  font-size: 1em;
+  line-height: 2.4286em;
+  margin: 1.214em 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 400;
+  color: #34495e;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 2.5714em;
+  line-height: 1.4167em;
+  margin: 0.708em 0;
+}
+
+h2 {
+  font-size: 1.4286em;
+  line-height: 1.5455em;
+  margin: 0.773em 0;
+}
+
+h3 {
+  font-size: 1.2857em;
+    line-height: 1.7em;
+  margin: 0.85em 0;
+}
+
+h4 {
+  font-size: 1.1429em;;
+  line-height: 1.8889em;
+  margin: 0.944em 0;
+}
+
+h5 {
+  font-size: 1em;
+  line-height: 2.125em;
+  margin: 1.107em 0;
+}
+
+h6 {
+  font-size: 0.875em;
+  line-height: 2.4286em;
+  margin: 1em 0;
+}
+
+
+
+.header {
+  @include outer-container;
+  text-align: center;
+  h1, h2, h3 {
+    @include span-columns(12);
+    @include omega();
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  img {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+  }
+ 
+}
+
+section {
+  @include outer-container;
+}
+section.timeline {
+  article { @include span-columns(6); }
+}
+
+section.main {
+  article { @include span-columns(12); @include omega(); }
+}
+
+section.image-gallery {
+  a { @include span-columns(1);  }
+}
+
+section.features-and-suroundings {
+  aside { @include span-columns(4); }
+  article { @include span-columns(8); @include omega(); }
+}
+
+.footer {
+  @include outer-container;
+}
