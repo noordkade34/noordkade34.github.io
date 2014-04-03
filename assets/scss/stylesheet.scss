@@ -20,7 +20,7 @@ $grid-columns: 12;
 $max-width: em(1024, 18);
 
 $mobile: new-breakpoint(max-width 480px);
-$desktop: new-breakpoint(min-width 850px);
+$tablet: new-breakpoint(max-width 1024px);
 
 
 
@@ -118,8 +118,8 @@ body {
 
 body {
   font: 400 18px/36px "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #F7F7F7;
-  color: #000;
+  background: #f5f5f5;
+  color: #333;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
@@ -141,9 +141,9 @@ body {
 img {
   max-width: 100%;
   height: auto;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 @media \0screen {
@@ -288,22 +288,33 @@ section.vve {
 }
 
 .footer {
-  @include outer-container;
+  background: #fff;
+  overflow: hidden;
+  article {
+    @include outer-container;
+  }
   @include media($mobile) {
     width: 100%;
   }
 }
 
+@include media($tablet) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
 @include media($mobile) {
-  .footer,
   .header h1,
   .header h2,
   .header h3 {
-      @include span-columns(10);
-      @include shift(1);
-      width: 82.94039%;
+      //@include span-columns(10);
+      //@include shift(1);
+      //width: 82.94039%;
   }
 
+  .footer article,
   section aside,
   section article,
   section.image-gallery a {
@@ -318,9 +329,10 @@ section.vve {
   }
 }
 
-.fb-like,
-.fb_iframe_widget {
-  @include media($mobile) {
+
+@include media($mobile) {
+  .fb-like,
+  .fb_iframe_widget {
     display: none !important;
   }
 }
