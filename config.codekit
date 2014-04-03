@@ -491,8 +491,8 @@
 		},
 	"\/assets\/js\/min\/html5shiv.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/html5shiv.min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/html5shiv.min-ck.js",
 		"outputPathIsOutsideProject": 0,
@@ -502,8 +502,8 @@
 		},
 	"\/assets\/js\/min\/jquery-1.11.0.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/jquery-1.11.0.min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/jquery-1.11.0.min-ck.js",
 		"outputPathIsOutsideProject": 0,
@@ -511,10 +511,21 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/assets\/js\/min\/min\/html5shiv.min-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/min\/min\/html5shiv.min-ck.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/min\/html5shiv.min-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/assets\/js\/min\/responds.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/responds.min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/responds.min-ck.js",
 		"outputPathIsOutsideProject": 0,
@@ -524,8 +535,8 @@
 		},
 	"\/assets\/js\/min\/scripts.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/scripts.min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/scripts.min-ck.js",
 		"outputPathIsOutsideProject": 0,
