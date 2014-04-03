@@ -89,16 +89,16 @@ navigationOff = function()
     $( '#imagelightbox-nav' ).remove();
 };
 
-$( function()
+$( function(){
+    var selectorE = '.image-gallery a';
+    var instanceE = $( selectorE ).imageLightbox(
     {
-        var selectorE = '.image-gallery a';
-        var instanceE = $( selectorE ).imageLightbox(
-        {
-            onStart: function() { overlayOn(); },
-            onEnd:       function() { overlayOff(); captionOff(); activityIndicatorOff(); },
-            onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-            onLoadEnd:   function() { captionOn(); activityIndicatorOff(); }
-        });
+        onStart: function() { overlayOn(); },
+        onEnd:       function() { overlayOff(); captionOff(); activityIndicatorOff(); },
+        onLoadStart: function() { captionOff(); activityIndicatorOn(); },
+        onLoadEnd:   function() { captionOn(); activityIndicatorOff(); }
+    });
 
 });
+
 

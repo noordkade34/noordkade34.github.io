@@ -298,7 +298,7 @@
   /* remove if not needed */
   margin-left: .2em;
   /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
+  font-size: 80%;
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
 
@@ -338,6 +338,10 @@
   content: '\e802'; }
 
 /* '' */
+.icon-phone:before {
+  content: '\e809'; }
+
+/* '' */
 /*
  Defaults
  */
@@ -449,6 +453,7 @@ a img {
   outline: none; }
 
 a {
+  color: #675e11;
   -webkit-transition: 0.2s color ease-in-out;
   -moz-transition: 0.2s color ease-in-out;
   -o-transition: 0.2s color ease-in-out;
@@ -483,7 +488,6 @@ h3 {
   line-height: 1.7em;
   margin: 0.85em 0; }
   h3 i {
-    font-size: 0.8em;
     top: -2px;
     position: relative; }
 
@@ -504,6 +508,9 @@ h6 {
 
 li {
   line-height: 1.75em; }
+
+.center {
+  text-align: center; }
 
 .header {
   max-width: 55.11111em;
@@ -565,16 +572,17 @@ section.main article {
 section.main p:first-child {
   margin-top: 0; }
 
+section.image-gallery .container {
+  width: 100%;
+  margin: 0 auto; }
 section.image-gallery a {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 14.70196%;
-  margin-left: 2.13245%; }
+  width: 21.5258%;
+  padding-bottom: 1em; }
   section.image-gallery a:last-child {
     margin-right: 0; }
-section.image-gallery a.o1 {
-  clear: left; }
 
 section.features-and-suroundings aside {
   float: left;

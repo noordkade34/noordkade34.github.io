@@ -181,6 +181,7 @@ a img {
 }
 
 a {
+  color: #675e11;
   -webkit-transition: 0.2s color ease-in-out;
     -moz-transition: 0.2s color ease-in-out;
       -o-transition: 0.2s color ease-in-out;
@@ -221,7 +222,7 @@ h3 {
     line-height: 1.7em;
   margin: 0.85em 0;
    i {
-    font-size: 0.8em;
+    //font-size: 0.8em;
     top: -2px;
     position: relative;
   }
@@ -247,6 +248,10 @@ h6 {
 
 li {
   line-height: 1.75em;
+}
+
+.center {
+  text-align: center;
 }
 
 
@@ -290,14 +295,21 @@ section.main {
 }
 
 section.image-gallery {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
   a { 
-    @include span-columns(2);
-    @include shift(0.25);
+    @include span-columns(2.8);
+    //@include shift(0.25);
+    padding-bottom: 1em;
   }
   a.o1 {
-    clear: left;
+    //clear: left;
   }
-  //.wk { @include span-columns(3);  }
+  .wk { 
+    //@include span-columns(2);  
+  }
   //.wk1 {  @include shift(1); }
 }
 
