@@ -13,12 +13,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "381da2c2f7fd51f8de877c044d7f439d",
-      "css": "picture",
-      "code": 59396,
-      "src": "fontawesome"
-    },
-    {
       "uid": "e82cedfa1d5f15b00c5a81c9bd731ea2",
       "css": "info-circled",
       "code": 59399,
@@ -35,6 +29,12 @@
       "css": "list-bullet",
       "code": 59397,
       "src": "fontawesome"
+    },
+    {
+      "uid": "3def559c3c39b8500882e02892b7daa8",
+      "css": "picture",
+      "code": 59396,
+      "src": "entypo"
     },
     {
       "uid": "64f5a50cf7ac972a56a9a511acb5d28e",

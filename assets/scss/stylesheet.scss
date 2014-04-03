@@ -12,7 +12,7 @@
 @import "/bower_components/normalize-css/normalize.css";
 
 @import "imagelightbox";
-@import "nk.css";
+@import "nk";
 
 
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic");
@@ -195,7 +195,6 @@ p {
 
 h1,h2,h3,h4,h5,h6 {
   font-weight: 400;
-  color: #34495e;
   color: #474747;
 }
 
@@ -221,6 +220,11 @@ h3 {
   font-size: 1.2857em;
     line-height: 1.7em;
   margin: 0.85em 0;
+   i {
+    font-size: 0.8em;
+    top: -2px;
+    position: relative;
+  }
 }
 
 h4 {

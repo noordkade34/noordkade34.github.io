@@ -1,5 +1,5 @@
+@charset "UTF-8";
 @import url(/bower_components/normalize-css/normalize.css);
-@import url(nk.css);
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic");
 * {
   -webkit-box-sizing: border-box;
@@ -262,6 +262,82 @@
   #imagelightbox-nav {
     bottom: 1.25em;
     /* 20 */ } }
+@font-face {
+  font-family: 'nk';
+  src: url("../font/nk.eot?98371329");
+  src: url("../font/nk.eot?98371329#iefix") format("embedded-opentype"), url("../font/nk.woff?98371329") format("woff"), url("../font/nk.ttf?98371329") format("truetype"), url("../font/nk.svg?98371329#nk") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'nk';
+    src: url('../font/nk.svg?98371329#nk') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "nk";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+.icon-mail-alt:before {
+  content: '\e803'; }
+
+/* '' */
+.icon-info-circled:before {
+  content: '\e807'; }
+
+/* '' */
+.icon-doc-text-inv:before {
+  content: '\e808'; }
+
+/* '' */
+.icon-list-bullet:before {
+  content: '\e805'; }
+
+/* '' */
+.icon-picture:before {
+  content: '\e804'; }
+
+/* '' */
+.icon-map:before {
+  content: '\e806'; }
+
+/* '' */
+.icon-home:before {
+  content: '\e800'; }
+
+/* '' */
+.icon-link:before {
+  content: '\e801'; }
+
+/* '' */
+.icon-clock:before {
+  content: '\e802'; }
+
+/* '' */
 /*
  Defaults
  */
@@ -385,7 +461,6 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  color: #34495e;
   color: #474747; }
 
 h1, h2, h3 {
@@ -407,6 +482,10 @@ h3 {
   font-size: 1.2857em;
   line-height: 1.7em;
   margin: 0.85em 0; }
+  h3 i {
+    font-size: 0.8em;
+    top: -2px;
+    position: relative; }
 
 h4 {
   font-size: 1.1429em;
