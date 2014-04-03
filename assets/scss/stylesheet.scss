@@ -8,15 +8,20 @@
 @import "bourbon";
 @import "neat";
 @import "neat-helpers";
-@import "bower_components/normalize-css/normalize.css";
+@import "imagelightbox";
+@import "/bower_components/normalize-css/normalize.css";
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,300);
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic");
 
 // Change the grid settings
 //$column: 90px;
 //$gutter: 30px;
 $grid-columns: 12;
 $max-width: em(1024, 18);
+
+$mobile: new-breakpoint(max-width 480px);
+$desktop: new-breakpoint(min-width 850px);
+
 
 
 /*
@@ -112,7 +117,7 @@ body {
 }
 
 body {
-  font: 400 18px/36px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 400 18px/36px "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #F7F7F7;
   color: #000;
   overflow-x: hidden;
@@ -169,7 +174,13 @@ p {
 h1,h2,h3,h4,h5,h6 {
   font-weight: 400;
   color: #34495e;
-  font-family: 'Raleway', sans-serif;
+  color: #474747;
+}
+
+h1,h2,h3 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 10px;
 }
 
 h1 {
@@ -208,6 +219,10 @@ h6 {
   margin: 1em 0;
 }
 
+hr {
+  
+}
+
 
 
 .header {
@@ -217,6 +232,11 @@ h6 {
     @include span-columns(12);
     @include omega();
     margin-top: 0.5em;
+  }
+  h1, h3 {
+    margin-bottom: 0;
+  }
+  h2 {
     margin-bottom: 0.5em;
   }
   img {
@@ -231,22 +251,74 @@ section {
   @include outer-container;
 }
 section.timeline {
-  article { @include span-columns(6); }
+  article { 
+    @include span-columns(6);
+  }
 }
 
 section.main {
   article { @include span-columns(12); @include omega(); }
+  p:first-child {
+    margin-top: 0;
+  }
 }
 
 section.image-gallery {
-  a { @include span-columns(1);  }
+  a { 
+    @include span-columns(2);
+    @include shift(0.25);
+  }
+  a.o1 {
+    clear: left;
+  }
+  //.wk { @include span-columns(3);  }
+  //.wk1 {  @include shift(1); }
 }
+
 
 section.features-and-suroundings {
   aside { @include span-columns(4); }
   article { @include span-columns(8); @include omega(); }
 }
 
+section.vve {
+  h3 {
+    text-transform: none;
+  }
+}
+
 .footer {
   @include outer-container;
+  @include media($mobile) {
+    width: 100%;
+  }
 }
+
+@include media($mobile) {
+  .footer,
+  .header h1,
+  .header h2,
+  .header h3 {
+      @include span-columns(10);
+      @include shift(1);
+      width: 82.94039%;
+  }
+
+  section aside,
+  section article,
+  section.image-gallery a {
+
+    @include span-columns(10);
+    @include shift(1);
+    
+    width: 82.94039%;
+  }
+}
+
+.fb-like,
+.fb_iframe_widget {
+  @include media($mobile) {
+    display: none !important;
+  }
+}
+
