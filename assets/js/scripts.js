@@ -94,10 +94,10 @@ $( function()
         var selectorE = '.image-gallery a';
         var instanceE = $( selectorE ).imageLightbox(
         {
-            onStart: function() { overlayOn(); navigationOn( instanceE, selectorE ); },
-            onEnd:       function() { overlayOff(); navigationOff(); captionOff(); activityIndicatorOff(); },
+            onStart: function() { overlayOn(); },
+            onEnd:       function() { overlayOff(); captionOff(); activityIndicatorOff(); },
             onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-            onLoadEnd:   function() { captionOn(); navigationUpdate( selectorE ); activityIndicatorOff(); }
+            onLoadEnd:   function() { captionOn(); activityIndicatorOff(); }
         });
 
 });
