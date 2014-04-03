@@ -333,7 +333,7 @@ section.vve {
 @include media($mobile) {
   .fb-like,
   .fb_iframe_widget {
-    display: none !important;
+    width: 100% !important;
   }
 }
 

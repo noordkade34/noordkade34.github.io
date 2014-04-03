@@ -553,4 +553,4 @@ section.vve h3 {
 @media screen and (max-width: 480px) {
   .fb-like,
   .fb_iframe_widget {
-    display: none !important; } }
+    width: 100% !important; } }
