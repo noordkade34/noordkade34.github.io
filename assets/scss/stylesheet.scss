@@ -311,7 +311,10 @@ section.vve {
     @include span-columns(10);
     @include shift(1);
     
-    width: 82.94039%;
+    width: 82.94039% !important;
+  }
+  section > h3 {
+    @include shift(1);
   }
 }
 

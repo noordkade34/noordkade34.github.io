@@ -549,11 +549,14 @@ section.vve h3 {
     margin-right: 2.35765%;
     width: 82.94039%;
     margin-left: 8.5298%;
-    width: 82.94039%; }
+    width: 82.94039% !important; }
     section aside:last-child,
     section article:last-child,
     section.image-gallery a:last-child {
-      margin-right: 0; } }
+      margin-right: 0; }
+
+  section > h3 {
+    margin-left: 8.5298%; } }
 @media screen and (max-width: 480px) {
   .fb-like,
   .fb_iframe_widget {
