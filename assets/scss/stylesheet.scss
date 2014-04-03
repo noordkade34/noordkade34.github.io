@@ -17,10 +17,28 @@
 //$column: 90px;
 //$gutter: 30px;
 $grid-columns: 12;
-$max-width: em(1024, 18);
+$max-width: em(992px, 18);
 
-$mobile: new-breakpoint(max-width 480px);
-$tablet: new-breakpoint(max-width 1024px);
+
+// Extra small screen / phone
+$screen-xs-min: 480px;
+
+// Small screen / tablet
+$screen-sm-min: 768px;
+
+// Medium screen / desktop
+$screen-md-min: 992px;
+
+// Large screen / wide desktop
+$screen-lg-min: 1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+$mobile: new-breakpoint(max-width $screen-xs-max);
+$tablet: new-breakpoint(max-width $screen-sm-max);
 
 
 
@@ -117,7 +135,7 @@ body {
 }
 
 body {
-  font: 400 18px/36px "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 400 18px/24px "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #f5f5f5;
   color: #333;
   overflow-x: hidden;
@@ -167,7 +185,7 @@ a {
 
 p {
   font-size: 1em;
-  line-height: 2.4286em;
+  line-height: 2.0286em;
   margin: 1.214em 0;
 }
 
@@ -219,8 +237,8 @@ h6 {
   margin: 1em 0;
 }
 
-hr {
-  
+li {
+  line-height: 1.75em;
 }
 
 
@@ -293,9 +311,7 @@ section.vve {
   article {
     @include outer-container;
   }
-  @include media($mobile) {
-    width: 100%;
-  }
+
 }
 
 @include media($tablet) {
