@@ -774,7 +774,7 @@ body {
   min-height: 100%; }
 
 body {
-  font: 400 18px/24px "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 300 18px/24px "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #f5f5f5;
   color: #333;
   overflow-x: hidden;
@@ -825,7 +825,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3 {
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 10px; }
 
 h1 {
@@ -882,7 +882,8 @@ li {
     margin-right: 2.35765%;
     width: 100%;
     margin-right: 0;
-    margin-top: 0.5em; }
+    margin-top: 0.5em;
+    font-weight: 300; }
     .header h1:last-child, .header h2:last-child, .header h3:last-child {
       margin-right: 0; }
   .header h1, .header h3 {
@@ -986,11 +987,11 @@ section.vve img {
 @media screen and (max-width: 480px) {
   body {
     font-size: 16px;
-    line-height: 20px; }
+    line-height: 20px;
+    font-weight: 400px; }
 
   .header h1 {
-    font-size: 2em;
-    font-weight: 300; }
+    font-size: 2em; }
 
   .header h2 {
     font-size: 1.1em; }
