@@ -40,7 +40,7 @@ $max-width: em(1044px, 18);
 //$screen-xs-max: ($screen-sm-min - 1);
 //$screen-sm-max: ($screen-md-min - 1);
 //$screen-md-max: ($screen-lg-min - 1);
-
+$mobile_portait: new-breakpoint(max-width 320px);
 $mobile: new-breakpoint(max-width 480px);
 //$mobile: new-breakpoint(max-width $screen-xs-min);
 $tablet: new-breakpoint(max-width 768px);
@@ -279,6 +279,11 @@ li {
  
 }
 
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
 section {
   @include outer-container;
 }
@@ -348,13 +353,20 @@ section.vve {
 }
 
 @include media($mobile) {
-
-  .header h1,
-  .header h2,
-  .header h3 {
-      //@include span-columns(10);
-      //@include shift(1);
-      //width: 82.94039%;
+  body {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .header h1 {
+    font-size: 2em;
+    font-weight: 300;
+  }
+  .header h2 {
+    font-size: 1.1em;
+  }
+  h3 {
+    font-size: 1.1em;
+    margin-bottom: 0.4em;
   }
 
   .footer article,

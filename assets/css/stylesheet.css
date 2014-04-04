@@ -899,6 +899,10 @@ li {
     .header img:last-child {
       margin-right: 0; }
 
+.container {
+  width: 95%;
+  margin: 0 auto; }
+
 section {
   max-width: 58em;
   margin-left: auto;
@@ -980,6 +984,21 @@ section.vve img {
     width: 90%;
     margin: 0 auto; } }
 @media screen and (max-width: 480px) {
+  body {
+    font-size: 16px;
+    line-height: 20px; }
+
+  .header h1 {
+    font-size: 2em;
+    font-weight: 300; }
+
+  .header h2 {
+    font-size: 1.1em; }
+
+  h3 {
+    font-size: 1.1em;
+    margin-bottom: 0.4em; }
+
   .footer article,
   section aside,
   section article,
