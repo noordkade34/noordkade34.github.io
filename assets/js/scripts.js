@@ -87,16 +87,26 @@ navigationUpdate = function( selector )
 navigationOff = function()
 {
     $( '#imagelightbox-nav' ).remove();
+},
+trackPhotoView = function(){
+    var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
+    ga('send', 'event', 'image', 'view', description);
 };
 
 $( function(){
     var selectorE = '.image-gallery a';
     var instanceE = $( selectorE ).imageLightbox(
     {
-        onStart: function() { overlayOn(); },
+        onStart: function() { overlayOn(); trackPhotoView(); },
         onEnd:       function() { overlayOff(); captionOff(); activityIndicatorOff(); },
         onLoadStart: function() { captionOff(); activityIndicatorOn(); },
         onLoadEnd:   function() { captionOn(); activityIndicatorOff(); }
+    });
+
+    $('.image-gallery a').click(function() {
+        var description = $(this).attr('alt');
+        ga('send', 'event', 'image', 'click', description);
+
     });
 
 });
