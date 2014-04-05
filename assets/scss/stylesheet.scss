@@ -255,7 +255,25 @@ li {
   text-align: center;
 }
 
-
+.menu {
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+     
+      list-style: none;
+    }
+    a {
+      display: block;
+      padding: 1em 1em;
+      font-size: 1.2em;
+    }
+  }
+}
 
 .header {
   @include outer-container;
@@ -358,6 +376,11 @@ section.vve {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400px;
+  }
+
+  .menu ul a {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
   .header h1 {
     font-size: 2em;
