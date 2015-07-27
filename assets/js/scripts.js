@@ -1,114 +1,116 @@
-/*
-	By Osvaldas Valutis, www.osvaldas.info
-	Available for use under the MIT License
-*/
+// https://github.com/rejas/imagelightbox/
 
-;(function(e,t,n,r){"use strict";var i=function(){var e=n.body||n.documentElement,e=e.style;if(e.WebkitTransition=="")return"-webkit-";if(e.MozTransition=="")return"-moz-";if(e.OTransition=="")return"-o-";if(e.transition=="")return"";return false},s=i()===false?false:true,o=function(e,t,n){var r={},s=i();r[s+"transform"]="translateX("+t+")";r[s+"transition"]=s+"transform "+n+"s linear";e.css(r)},u="ontouchstart"in t,a=t.navigator.pointerEnabled||t.navigator.msPointerEnabled,f=function(e){if(u)return true;if(!a||typeof e==="undefined"||typeof e.pointerType==="undefined")return false;if(typeof e.MSPOINTER_TYPE_MOUSE!=="undefined"){if(e.MSPOINTER_TYPE_MOUSE!=e.pointerType)return true}else if(e.pointerType!="mouse")return true;return false};e.fn.imageLightbox=function(r){var r=e.extend({selector:'id="imagelightbox"',allowedTypes:"png|jpg|jpeg|gif",animationSpeed:250,preloadNext:true,enableKeyboard:true,quitOnEnd:false,quitOnImgClick:false,quitOnDocClick:true,onStart:false,onEnd:false,onLoadStart:false,onLoadEnd:false},r),i=e([]),l=e(),c=e(),h=0,p=0,d=0,v=false,m=function(t){return e(t).prop("tagName").toLowerCase()=="a"&&(new RegExp(".("+r.allowedTypes+")$","i")).test(e(t).attr("href"))},g=function(){if(!c.length)return false;var n=e(t).width()*.8,r=e(t).height()*.9,i=new Image;i.src=c.attr("src");i.onload=function(){h=i.width;p=i.height;if(h>n||p>r){var s=h/p>n/r?h/n:p/r;h/=s;p/=s}c.css({width:h+"px",height:p+"px",top:(e(t).height()-p)/2+"px",left:(e(t).width()-h)/2+"px"})}},y=function(t){if(v)return false;t=typeof t==="undefined"?false:t=="left"?1:-1;if(c.length){if(t!==false&&(i.length<2||r.quitOnEnd===true&&(t===-1&&i.index(l)==0||t===1&&i.index(l)==i.length-1))){w();return false}var n={opacity:0};if(s)o(c,100*t-d+"px",r.animationSpeed/1e3);else n.left=parseInt(c.css("left"))+100*t+"px";c.animate(n,r.animationSpeed,function(){b()});d=0}v=true;if(r.onLoadStart!==false)r.onLoadStart();setTimeout(function(){c=e("<img "+r.selector+" />").attr("src",l.attr("href")).load(function(){c.appendTo("body");g();var n={opacity:1};c.css("opacity",0);if(s){o(c,-100*t+"px",0);setTimeout(function(){o(c,0+"px",r.animationSpeed/1e3)},50)}else{var u=parseInt(c.css("left"));n.left=u+"px";c.css("left",u-100*t+"px")}c.animate(n,r.animationSpeed,function(){v=false;if(r.onLoadEnd!==false)r.onLoadEnd()});if(r.preloadNext){var a=i.eq(i.index(l)+1);if(!a.length)a=i.eq(0);e("<img />").attr("src",a.attr("href")).load()}}).error(function(){if(r.onLoadEnd!==false)r.onLoadEnd()});var n=0,u=0,p=0;c.on(a?"pointerup MSPointerUp":"click",function(e){e.preventDefault();if(r.quitOnImgClick){w();return false}if(f(e.originalEvent))return true;var t=(e.pageX||e.originalEvent.pageX)-e.target.offsetLeft;l=i.eq(i.index(l)-(h/2>t?1:-1));if(!l.length)l=i.eq(h/2>t?i.length:0);y(h/2>t?"left":"right")}).on("touchstart pointerdown MSPointerDown",function(e){if(!f(e.originalEvent)||r.quitOnImgClick)return true;if(s)p=parseInt(c.css("left"));n=e.originalEvent.pageX||e.originalEvent.touches[0].pageX}).on("touchmove pointermove MSPointerMove",function(e){if(!f(e.originalEvent)||r.quitOnImgClick)return true;e.preventDefault();u=e.originalEvent.pageX||e.originalEvent.touches[0].pageX;d=n-u;if(s)o(c,-d+"px",0);else c.css("left",p-d+"px")}).on("touchend touchcancel pointerup MSPointerUp",function(e){if(!f(e.originalEvent)||r.quitOnImgClick)return true;if(Math.abs(d)>50){l=i.eq(i.index(l)-(d<0?1:-1));if(!l.length)l=i.eq(d<0?i.length:0);y(d>0?"right":"left")}else{if(s)o(c,0+"px",r.animationSpeed/1e3);else c.animate({left:p+"px"},r.animationSpeed/2)}})},r.animationSpeed+100)},b=function(){if(!c.length)return false;c.remove();c=e()},w=function(){if(!c.length)return false;c.animate({opacity:0},r.animationSpeed,function(){b();v=false;if(r.onEnd!==false)r.onEnd()})};e(t).on("resize",g);if(r.quitOnDocClick){e(n).on(u?"touchend":"click",function(t){if(c.length&&!e(t.target).is(c))w()})}if(r.enableKeyboard){e(n).on("keyup",function(e){if(!c.length)return true;e.preventDefault();if(e.keyCode==27)w();if(e.keyCode==37||e.keyCode==39){l=i.eq(i.index(l)-(e.keyCode==37?1:-1));if(!l.length)l=i.eq(e.keyCode==37?i.length:0);y(e.keyCode==37?"left":"right")}})}e(n).on("click",this.selector,function(t){if(!m(this))return true;t.preventDefault();if(v)return false;v=false;if(r.onStart!==false)r.onStart();l=e(this);y()});this.each(function(){if(!m(this))return true;i=i.add(e(this))});this.switchImageLightbox=function(e){var t=i.eq(e);if(t.length){var n=i.index(l);l=t;y(e<n?"left":"right")}return this};this.quitImageLightbox=function(){w();return this};return this}})(jQuery,window,document);
+!function(t,n,e,i){"use strict";var o=function(){var t=e.body||e.documentElement;return t=t.style,""===t.WebkitTransition?"-webkit-":""===t.MozTransition?"-moz-":""===t.OTransition?"-o-":""===t.transition?"":!1},r=o()!==!1,a=function(t,n,e){var i={},r=o();i[r+"transform"]="translateX("+n+")",i[r+"transition"]=r+"transform "+e+"s linear",t.css(i)},u="ontouchstart"in n,c=n.navigator.pointerEnabled||n.navigator.msPointerEnabled,f=function(t){if(u)return!0;if(!c||"undefined"==typeof t||"undefined"==typeof t.pointerType)return!1;if("undefined"!=typeof t.MSPOINTER_TYPE_MOUSE){if(t.MSPOINTER_TYPE_MOUSE!==t.pointerType)return!0}else if("mouse"!==t.pointerType)return!0;return!1};t.fn.imageLightbox=function(o){var u=t.extend({selector:'id="imagelightbox"',allowedTypes:"png|jpg|jpeg||gif",animationSpeed:250,preloadNext:!0,enableKeyboard:!0,quitOnEnd:!1,quitOnImgClick:!1,quitOnDocClick:!0,quitOnEscKey:!0,onStart:!1,onEnd:!1,onLoadStart:!1,onLoadEnd:!1,previousTarget:function(){return this.previousTargetDefault()},previousTargetDefault:function(){var t=s.index(d)-1;if(0>t){if(u.quitOnEnd===!0)return b(),!1;t=s.length-1}d=s.eq(t)},nextTarget:function(){return this.nextTargetDefault()},nextTargetDefault:function(){var t=s.index(d)+1;if(t>=s.length){if(u.quitOnEnd===!0)return b(),!1;t=0}d=s.eq(t)}},o),s=t([]),d=t(),l=t(),p=0,g=0,h=0,v=!1,m=function(n){var e="a"===t(n).prop("tagName").toLowerCase()&&new RegExp(".("+u.allowedTypes+")$","i").test(t(n).attr("href")),o=t(n).attr("data-lightbox")!==i;return e||o},x=function(){if(!l.length)return!0;var e=.8*t(n).width(),i=.9*t(n).height(),o=new Image;o.src=l.attr("src"),o.onload=function(){if(p=o.width,g=o.height,p>e||g>i){var r=p/g>e/i?p/e:g/i;p/=r,g/=r}l.css({width:p+"px",height:g+"px",top:(t(n).height()-g)/2+"px",left:(t(n).width()-p)/2+"px"})}},E=function(n){if(v)return!1;if(n="undefined"==typeof n?!1:"left"===n?1:-1,l.length){var e={opacity:0};r?a(l,100*n-h+"px",u.animationSpeed/1e3):e.left=parseInt(l.css("left"))+100*n+"px",l.animate(e,u.animationSpeed,function(){T()}),h=0}v=!0,u.onLoadStart!==!1&&u.onLoadStart(),setTimeout(function(){var e=d.attr("href");e===i&&(e=d.attr("data-lightbox")),l=t("<img "+u.selector+" />").attr("src",e).load(function(){l.appendTo("body"),x();var e={opacity:1};if(l.css("opacity",0),r)a(l,-100*n+"px",0),setTimeout(function(){a(l,"0px",u.animationSpeed/1e3)},50);else{var i=parseInt(l.css("left"));e.left=i+"px",l.css("left",i-100*n+"px")}if(l.animate(e,u.animationSpeed,function(){v=!1,u.onLoadEnd!==!1&&u.onLoadEnd()}),u.preloadNext){var o=s.eq(s.index(d)+1);o.length||(o=s.eq(0)),t("<img />").attr("src",o.attr("href")).load()}}).error(function(){u.onLoadEnd!==!1&&u.onLoadEnd()});var o=0,g=0,m=0;l.on(c?"pointerup MSPointerUp":"click",function(t){if(t.preventDefault(),u.quitOnImgClick)return b(),!1;if(f(t.originalEvent))return!0;var n=(t.pageX||t.originalEvent.pageX)-t.target.offsetLeft;p/2>n?y():S()}).on("touchstart pointerdown MSPointerDown",function(t){return!f(t.originalEvent)||u.quitOnImgClick?!0:(r&&(m=parseInt(l.css("left"))),void(o=t.originalEvent.pageX||t.originalEvent.touches[0].pageX))}).on("touchmove pointermove MSPointerMove",function(t){return!f(t.originalEvent)||u.quitOnImgClick?!0:(t.preventDefault(),g=t.originalEvent.pageX||t.originalEvent.touches[0].pageX,h=o-g,void(r?a(l,-h+"px",0):l.css("left",m-h+"px")))}).on("touchend touchcancel pointerup pointercancel MSPointerUp MSPointerCancel",function(t){return!f(t.originalEvent)||u.quitOnImgClick?!0:void(Math.abs(h)>50?0>h?y():S():r?a(l,"0px",u.animationSpeed/1e3):l.animate({left:m+"px"},u.animationSpeed/2))})},u.animationSpeed+100)},y=function(){u.previousTarget()!==!1&&E("left")},S=function(){u.nextTarget()!==!1&&E("right")},T=function(){return l.length?(l.remove(),void(l=t())):!1},b=function(){return l.length?void l.animate({opacity:0},u.animationSpeed,function(){T(),v=!1,u.onEnd!==!1&&u.onEnd()}):!1};return t(n).on("resize",x),u.quitOnDocClick&&t(e).on("click",function(n){n.preventDefault(),l.length&&!t(n.target).is(l)&&b()}),u.enableKeyboard&&t(e).on("keyup",function(t){return l.length?(t.preventDefault(),27===t.keyCode&&u.quitOnEscKey===!0&&b(),void(37===t.keyCode?y():39===t.keyCode&&S())):!0}),this.startImageLightbox=function(n){return m(this)?(n!==i&&n.preventDefault(),v?!1:(v=!1,u.onStart!==!1&&u.onStart(),d=t(this),void E())):!0},t(e).off("click",this.selector),t(e).on("click",this.selector,this.startImageLightbox),this.each(function(){return m(this)?void(s=s.add(t(this))):!0}),this.switchImageLightbox=function(t){var n=s.eq(t);if(n.length){var e=s.index(d);d=n,E(e>t?"left":"right")}return this},this.loadPreviousImage=function(){y()},this.loadNextImage=function(){S()},this.quitImageLightbox=function(){return b(),this},this.addImageLightbox=function(n){return n.each(function(){return m(this)?void(s=s.add(t(this))):!0}),n.click(this.startImageLightbox),this},this}}(jQuery,window,document);
 
 
-/*
-    VIEWPORT BUG FIX
-    iOS viewport scaling bug fix, by @mathias, @cheeaun and @jdalton
-*/
-;(function(e){function o(){s.content="width=device-width,minimum-scale="+i[0]+",maximum-scale="+i[1];e.removeEventListener(n,o,true)}var t="addEventListener",n="gesturestart",r="querySelectorAll",i=[1,1],s=r in e?e[r]("meta[name=viewport]"):[];if((s=s[s.length-1])&&t in e){o();i=[.25,1.6];e[t](n,o,true)}})(document);
-
-
-var activityIndicatorOn = function()
+$( function()
 {
-    $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
-},
-activityIndicatorOff = function()
-{
-    $( '#imagelightbox-loading' ).remove();
-},
-
-overlayOn = function()
-{
-    $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
-},
-overlayOff = function()
-{
-    $( '#imagelightbox-overlay' ).remove();
-},
-
-closeButtonOn = function( instance )
-{
-    $( '<a href="#" id="imagelightbox-close">Close</a>' ).appendTo( 'body' ).on( 'click', function(){ $( this ).remove(); instance.quitImageLightbox(); return false; });
-},
-closeButtonOff = function()
-{
-    $( '#imagelightbox-close' ).remove();
-},
-
-captionOn = function()
-{
-    var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-    if( description.length > 0 )
-        $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
-},
-captionOff = function()
-{
-    $( '#imagelightbox-caption' ).remove();
-},
-
-navigationOn = function( instance, selector )
-{
-    var images = $( selector );
-    if( images.length )
-    {
-        var nav = $( '<div id="imagelightbox-nav"></div>' );
-        for( var i = 0; i < images.length; i++ )
-            nav.append( '<a href="#"></a>' );
-
-        nav.appendTo( 'body' );
-        nav.on( 'click touchend', function(){ return false; });
-
-        var navItems = nav.find( 'a' );
-        navItems.on( 'click touchend', function()
-        {
-            var $this = $( this );
-            if( images.eq( $this.index() ).attr( 'href' ) != $( '#imagelightbox' ).attr( 'src' ) )
-                instance.switchImageLightbox( $this.index() );
-
-            navItems.removeClass( 'active' );
-            navItems.eq( $this.index() ).addClass( 'active' );
-
+    var activityIndicatorOn = function () {
+        $('<div id="imagelightbox-loading"><div></div></div>').appendTo('body');
+    },
+    activityIndicatorOff = function () {
+        $('#imagelightbox-loading').remove();
+    },
+    overlayOn = function () {
+        $('<div id="imagelightbox-overlay"></div>').appendTo('body');
+    },
+    overlayOff = function () {
+        $('#imagelightbox-overlay').remove();
+    },
+    closeButtonOn = function (instance) {
+        $('<a href="#" id="imagelightbox-close"></a>').appendTo('body').on('click', function () {
+            $(this).remove();
+            instance.quitImageLightbox();
             return false;
-        })
-        .on( 'touchend', function(){ return false; });
-    }
-},
-navigationUpdate = function( selector )
-{
-    var items = $( '#imagelightbox-nav a' );
-    items.removeClass( 'active' );
-    items.eq( $( selector ).filter( '[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"]' ).index( selector ) ).addClass( 'active' );
-},
-navigationOff = function()
-{
-    $( '#imagelightbox-nav' ).remove();
-},
-trackPhotoView = function(){
-    var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-    ga('send', 'event', 'image', 'view', description);
-};
+        });
+    },
+    closeButtonOff = function () {
+        $('#imagelightbox-close').remove();
+    },
+    captionOn = function () {
+        var description = $('a[href="' + $('#imagelightbox').attr('src') + '"] img').attr('alt');
+        if (description.length > 0)
+            $('<div id="imagelightbox-caption">' + description + '</div>').appendTo('body');
+    },
+    captionOff = function () {
+        $('#imagelightbox-caption').remove();
+    },
+    navigationOn = function (instance, selector) {
+        var images = $(selector);
+        if (images.length) {
+            var nav = $('<div id="imagelightbox-nav"></div>');
+            for (var i = 0; i < images.length; i++)
+                nav.append('<a href="#"></a>');
+            nav.appendTo('body');
+            nav.on('click touchend', function () {
+                return false;
+            });
+            var navItems = nav.find('a');
+            navItems.on('click touchend', function () {
+                var $this = $(this);
+                if (images.eq($this.index()).attr('href') != $('#imagelightbox').attr('src'))
+                    instance.switchImageLightbox($this.index());
+                navItems.removeClass('active');
+                navItems.eq($this.index()).addClass('active');
+                return false;
+            })
+                    .on('touchend', function () {
+                        return false;
+                    });
+        }
+    },
+    navigationUpdate = function (selector) {
+        var items = $('#imagelightbox-nav').find('a');
+        items.removeClass('active');
+        items.eq($(selector).filter('[href="' + $('#imagelightbox').attr('src') + '"]').index(selector)).addClass('active');
+    },
+    navigationOff = function () {
+        $('#imagelightbox-nav').remove();
+    },
+    arrowsOn = function( instance, selector ) {
+        var $arrows = $( '<button type="button" class="imagelightbox-arrow imagelightbox-arrow-left"></button>' +
+                         '<button type="button" class="imagelightbox-arrow imagelightbox-arrow-right"></button>' );
+        $arrows.appendTo( 'body' );
+        $arrows.on( 'click touchend', function( e ) {
+            e.preventDefault();
+            var $this = $( this );
+            if( $this.hasClass('imagelightbox-arrow-left')) {
+                instance.loadPreviousImage();
+            } else {
+                instance.loadNextImage();
+            }
+            return false;
+        });
+    },
+    arrowsOff = function() {
+        $('.imagelightbox-arrow').remove();
+    };
 
-$( function(){
-    var selectorE = '.image-gallery a';
-    var instanceE = $( selectorE ).imageLightbox(
+    var selector = '.image-gallery a';
+    var $gallery = $(selector).imageLightbox(
     {
-        onStart: function() { overlayOn(); trackPhotoView(); },
-        onEnd:       function() { overlayOff(); captionOff(); activityIndicatorOff(); },
-        onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-        onLoadEnd:   function() { captionOn(); activityIndicatorOff(); }
+        onStart: function () {
+            overlayOn();
+            arrowsOn( $gallery, selector );
+            closeButtonOn($gallery);
+        },
+        onEnd: function () {
+            overlayOff();
+            captionOff();
+            closeButtonOff();
+            arrowsOff(); 
+            activityIndicatorOff();
+        },
+        onLoadStart: function () {
+            captionOff();
+            activityIndicatorOn();
+        },
+        onLoadEnd: function () {
+            captionOn();
+            activityIndicatorOff();
+            $( '.imagelightbox-arrow' ).css( 'display', 'block' );
+        }
     });
 
-    $('.image-gallery a').click(function() {
-        var description = $(this).attr('alt');
-        ga('send', 'event', 'image', 'click', description);
-
-    });
 
 });
-
-
