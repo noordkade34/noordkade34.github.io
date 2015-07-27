@@ -267,7 +267,7 @@
 		"outputAbbreviatedPath": "\/assets\/img\/dekopspijker-landscape.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/assets\/img\/lrg\/1.1 - woonkamer.jpg": {
 		"fileType": 16384,
@@ -485,6 +485,17 @@
 		"initialSize": 0,
 		"inputAbbreviatedPath": "\/assets\/img\/lrg\/9. - inrit.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/lrg\/9. - inrit.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 1
+		},
+	"\/assets\/img\/plattegrond.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 54874,
+		"inputAbbreviatedPath": "\/assets\/img\/plattegrond.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/plattegrond.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 1
