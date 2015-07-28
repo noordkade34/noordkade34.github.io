@@ -86,7 +86,7 @@ $( function()
         $('.imagelightbox-arrow').remove();
     };
 
-    var selector = '.image-gallery a';
+    var selector = 'a[data-imagelightbox="fotos"]';
     var $gallery = $(selector).imageLightbox(
     {
         onStart: function () {
