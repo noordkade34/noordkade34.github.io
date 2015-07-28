@@ -505,7 +505,8 @@ $( function()
             captionOn();
             activityIndicatorOff();
             $( '.imagelightbox-arrow' ).css( 'display', 'block' );
-        }
+        },
+        quitOnDocClick: false
     });
 
 
